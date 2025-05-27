@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>💻 โค้ด Lua สำหรับ Roblox</title>
+  <link rel="stylesheet" href="home.css" />
+  <style>
+    body {
+      font-family: 'Kanit', sans-serif;
+      background-color: #f4f8fb;
+      color: #333;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .header {
+      background-color: #2d89ef;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 10px;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .content {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      color: #2d89ef;
+    }
+
+    pre {
+      background-color: #eee;
+      padding: 15px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+
+    ul {
+      line-height: 1.8;
+    }
+
+    hr {
+      margin: 30px 0;
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <h1>💻 โค้ด Lua สำหรับ Roblox</h1>
+    <a href="home.html" class="back-link">🔙 กลับหน้าหลัก</a>
+  </header>
+
+  <main class="content">
+    <h2>👨‍💻 ภาษา Lua คืออะไร?</h2>
+    <p>Lua เป็นภาษาสคริปต์เบาและง่าย ที่ใช้ควบคุมพฤติกรรมของวัตถุใน Roblox Studio เช่น การกดปุ่ม การชน การเคลื่อนไหว และอื่น ๆ</p>
+
+    <hr/>
+
+    <h2>🧱 วิธีใส่ Script ใน Roblox Studio</h2>
+    <ul>
+      <li>1. เปิด Roblox Studio แล้วสร้าง Part ใหม่</li>
+      <li>2. คลิกขวาที่ Part → Insert Object → เลือก <strong>Script</strong></li>
+      <li>3. ใส่โค้ด Lua ที่ต้องการในหน้าต่าง Script</li>
+    </ul>
+
+    <hr/>
+
+    <h2>📌 ตัวอย่าง Script พื้นฐาน</h2>
+
+    <h3>1. ตรวจจับการชน (Touched Event)</h3>
+    <pre><code>local part = script.Parent
+part.Touched:Connect(function(hit)
+    print("มีบางอย่างชนกับวัตถุนี้!")
+end)</code></pre>
+
+    <h3>2. เปลี่ยนสีเมื่อถูกคลิก</h3>
+    <pre><code>local part = script.Parent
+local clickDetector = Instance.new("ClickDetector", part)
+
+clickDetector.MouseClick:Connect(function(player)
+    part.BrickColor = BrickColor.Random()
+end)</code></pre>
+    <p>💡 ขั้นตอน: ใส่ ClickDetector ด้วยการคลิกขวาที่ Part → Insert Object → ClickDetector</p>
+
+    <h3>3. เคลื่อนที่วัตถุ</h3>
+    <pre><code>local part = script.Parent
+
+part.Touched:Connect(function()
+    part.Position = part.Position + Vector3.new(0, 10, 0)
+end)</code></pre>
+
+    <h3>4. แสดงข้อความเมื่อเริ่มเกม</h3>
+    <pre><code>print("ยินดีต้อนรับสู่เกมของคุณ!")</code></pre>
+
+    <h3>5. สร้างปุ่ม UI และแสดงข้อความ</h3>
+    <pre><code>local button = script.Parent
+
+button.MouseButton1Click:Connect(function()
+    print("ปุ่มถูกกด!")
+end)</code></pre>
+    <p>💡 ปุ่มนี้ต้องใช้ใน <strong>ScreenGui > TextButton</strong> ที่วางใน StarterGui</p>
+
+    <hr/>
+
+    <h2>📖 เทคนิคเพิ่มเติมที่น่าสนใจ</h2>
+    <ul>
+      <li>🧠 ใช้ <code>if</code>, <code>while</code>, และ <code>for</code> เพื่อควบคุมเงื่อนไข</li>
+      <li>📦 ใช้ <code>ModuleScript</code> เพื่อแบ่งโค้ดเป็นส่วน ๆ</li>
+      <li>🎮 เชื่อมกับ UI เพื่อควบคุมเกมแบบ Interactive</li>
+    </ul>
+
+    <p>✨ ฝึกฝนเขียนโค้ดบ่อย ๆ จะทำให้คุณสามารถสร้างเกมที่สมบูรณ์แบบได้ด้วยตนเอง!</p>
+  </main>
+  <!-- Navigation Bar -->
+<nav class="navbar">
+  <ul>
+    <li><a href="home.html">หน้าหลัก</a></li>
+    <li><a href="map-basics.html">สร้างแมพ</a></li>
+    <li><a href="tool-guide.html">เครื่องมือ</a></li>
+    <li><a href="lua-code.html">โค้ด Lua</a></li>
+    <li><a href="setting.html">การตั้งค่า</a></li>
+    <li><a href="index.html">ลงทะเบียน</a></li>
+    <li><a href="login.html">เข้าสู่ระบบ</a></li>
+  </ul>
+</nav>
+
+</body>
+</html>

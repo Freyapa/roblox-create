@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>⚙️ การตั้งค่า</title>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="home.css" />
+  <style>
+    body {
+      font-family: 'Kanit', sans-serif;
+      background-color: #f0f4f8;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* 🔧 Top Navigation Bar */
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #2d89ef;
+      padding: 15px 30px;
+      color: white;
+    }
+
+    .topbar h1 {
+      font-size: 1.4em;
+      margin: 0;
+    }
+
+    .topbar .settings-icon {
+      font-size: 1.6em;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .topbar .settings-icon:hover {
+      transform: rotate(30deg);
+    }
+
+    /* 🔧 Settings Panel */
+    .settings-container {
+      max-width: 600px;
+      margin: 40px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      color: #444;
+      font-size: 1.2em;
+      margin-bottom: 10px;
+    }
+
+    select, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      font-size: 1em;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    button {
+      background-color: #e53935;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #c62828;
+    }
+
+    .profile-box {
+      background-color: #f7f9fc;
+      padding: 15px;
+      border-radius: 10px;
+      margin-top: 10px;
+      line-height: 1.6;
+    }
+
+    .back-link {
+      display: block;
+      text-align: center;
+      margin-top: 30px;
+      text-decoration: none;
+      color: #2d89ef;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <!-- 🔧 Topbar -->
+  <div class="topbar">
+    <h1>⚙️ การตั้งค่า</h1>
+    <a href="home.html" title="กลับหน้าหลัก">
+      <span class="settings-icon">🏠</span>
+    </a>
+  </div>
+
+  <!-- 🧰 Setting Panel -->
+  <div class="settings-container">
+    <div class="setting-section">
+      <h2>🌐 ภาษา</h2>
+      <select id="languageSelect">
+        <option value="th">ไทย</option>
+        <option value="en">English</option>
+        <option value="jp">日本語</option>
+      </select>
+    </div>
+
+    <div class="setting-section">
+      <h2>👤 ข้อมูลส่วนตัว</h2>
+      <div class="profile-box">
+        <p><strong>ชื่อผู้ใช้:</strong> <span id="userName">ยังไม่ได้เข้าสู่ระบบ</span></p>
+        <p><strong>อีเมล:</strong> user@example.com</p>
+        <p><strong>ระดับ:</strong> ผู้เรียน</p>
+      </div>
+    </div>
+
+    <div class="setting-section">
+      <h2>🚪 ออกจากระบบ</h2>
+      <button onclick="logout()">ออกจากระบบ</button>
+    </div>
+
+    <a href="home.html" class="back-link">🔙 กลับหน้าหลัก</a>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const user = sessionStorage.getItem("loggedInUser");
+      if (user) {
+        document.getElementById("userName").textContent = user;
+      }
+    });
+
+    function logout() {
+      sessionStorage.removeItem("loggedInUser");
+      window.location.href = "login.html";
+    }
+  </script>
+  <!-- Navigation Bar -->
+<nav class="navbar">
+  <ul>
+    <li><a href="home.html">หน้าหลัก</a></li>
+    <li><a href="map-basics.html">สร้างแมพ</a></li>
+    <li><a href="tool-guide.html">เครื่องมือ</a></li>
+    <li><a href="lua-code.html">โค้ด Lua</a></li>
+    <li><a href="setting.html">การตั้งค่า</a></li>
+    <li><a href="index.html">ลงทะเบียน</a></li>
+    <li><a href="login.html">เข้าสู่ระบบ</a></li>
+  </ul>
+</nav>
+
+</body>
+</html>
